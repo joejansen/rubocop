@@ -2501,6 +2501,24 @@ Enabled | No
 
 This cop checks for nested ternary op expressions.
 
+### Example
+
+```ruby
+# bad
+a > b ? c : d < e ? f : c == f ? g : a
+
+# good
+if a > b
+  c
+elsif d < e
+  f
+elsif c == f
+  g
+else
+  a
+end
+```
+
 ### References
 
 * [https://github.com/bbatsov/ruby-style-guide#no-nested-ternary](https://github.com/bbatsov/ruby-style-guide#no-nested-ternary)
